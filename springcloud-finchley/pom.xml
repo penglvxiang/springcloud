@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- 父pom文件 springboot版本与springcloud版本有对应关系，不能随意变动-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
+        <relativePath/>
+    </parent>
+    <!-- 本包内容 -->
+    <groupId>com.springcloud.local</groupId>
+    <artifactId>springcloud-finchley</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <name>springcloud-finchley</name>
+    <description>eureka-finchley project for Spring Boot</description>
+    <!-- 子models -->
+    <modules>
+        <module>eureka-server</module> <!--eureka 服务端 -->
+        <module>eureka-client</module> <!--eureka 客户端 -->
+        <module>service-ribbon</module><!--服务消费者负载均衡客户端 -->
+        <module>service-feign</module> <!--服务消费者负载均衡客户端 -->
+        <module>service-zuul</module>  <!--服务消费者路由网关客户端 -->
+
+    </modules>
+    <!-- 参数 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+    </properties>
+    <!-- 相关依赖 -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <!-- springcloud -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <!-- 项目构建插件 -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip><!-- 跳过默认apache-maven编译Test目录 -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
