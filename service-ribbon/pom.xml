@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- 父pom文件 -->
+    <parent>
+        <groupId>com.springcloud.local</groupId>
+        <artifactId>springcloud-finchley</artifactId>
+        <version>1.0</version>
+    </parent>
+    <!-- 本包内容 -->
+    <groupId>com.springcloud.local</groupId>
+    <artifactId>service-ribbon</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <name>service-ribbon</name>
+    <description>service-ribbon project for Spring Boot</description>
+    <!-- 相关依赖 -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+        <!-- zuul相关依赖 zuul默认与ribbon结合，需在此处引用zuul相关依赖，然后zuul自己再引用-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-zuul</artifactId>
+            <version>2.0.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.netflix.zuul</groupId>
+            <artifactId>zuul-core</artifactId>
+            <version>1.3.1</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+</project>

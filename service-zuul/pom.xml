@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- 父pom文件 -->
+    <parent>
+        <groupId>com.springcloud.local</groupId>
+        <artifactId>springcloud-finchley</artifactId>
+        <version>1.0</version>
+    </parent>
+    <!-- 本包内容 -->
+    <groupId>com.springcloud.local</groupId>
+    <artifactId>service-zuul</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <name>service-zuul</name>
+    <description>service-zuul project for Spring Boot</description>
+    <!-- 相关依赖 -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- zuul需再次引用至本项目，否则maven打包报错:程序包org.springframework.cloud.netflix.zuul不存在-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+        </dependency>
+
+    </dependencies>
+</project>
